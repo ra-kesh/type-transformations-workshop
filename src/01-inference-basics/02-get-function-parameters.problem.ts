@@ -8,10 +8,14 @@ const makeQuery = (
       [key: string]: string;
     };
     body?: string;
-  },
+  }
 ) => {};
+// Parameters returns a tuple
 
-type MakeQueryParameters = unknown;
+type MakeQueryParameters = Parameters<typeof makeQuery>;
+
+// to extract a second parameter we can use index types
+type MakeQueryParametersSecond = MakeQueryParameters[1];
 
 type tests = [
   Expect<
@@ -25,8 +29,8 @@ type tests = [
             [key: string]: string;
           };
           body?: string;
-        },
+        }
       ]
     >
-  >,
+  >
 ];

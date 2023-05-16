@@ -14,6 +14,8 @@ export type Event =
       event: KeyboardEvent;
     };
 
-type EventType = unknown;
+// As long as `type` exist in all the members
+
+type EventType = Event["type"];
 
 type tests = [Expect<Equal<EventType, "click" | "focus" | "keydown">>];
